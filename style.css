@@ -70,12 +70,17 @@ header .icons span:last-child {
   padding: 20px;
 }
 
+.calendar .days {
+  margin-bottom: 20px;
+}
+
 .calendar .weeks li {
   font-weight: 500;
 }
 
-.calendar .days {
-  margin-bottom: 20px;
+.calendar ul li {
+  position: relative;
+  width: calc(100% / 7);
 }
 
 .calendar .days li {
@@ -84,12 +89,15 @@ header .icons span:last-child {
   margin-top: 30px;
 }
 
-.calendar ul li {
-  position: relative;
-  width: calc(100% / 7);
+.days li.inactive {
+  color: #aaa;
 }
 
-.calendar .days ul li::before {
+.days li.active {
+  color: #fff;
+}
+
+.calendar .days li::before {
   position: absolute;
   content: "";
   height: 40px;
@@ -99,9 +107,12 @@ header .icons span:last-child {
   z-index: -1;
   border-radius: 50%;
   transform: translate(-50%, -50%);
+}
+
+.days li:hover::before {
   background: #f2f2f2;
 }
 
-days ul li:hover::before {
-  background: #f2f2f2;
+.days li.active::before {
+  background: #9b59b6;
 }
