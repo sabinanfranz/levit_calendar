@@ -1,6 +1,6 @@
 const currentDate = document.querySelector(".current-date"),
-  daysTag = document.querySelector(".days");
-prevNextIcon = document.querySelectorAll(".icons span");
+  daysTag = document.querySelector(".days"),
+  prevNextIcon = document.querySelectorAll(".icons span");
 
 let date = new Date(),
   currYear = date.getFullYear(),
@@ -24,9 +24,11 @@ const months = [
 ];
 
 const renderCalendar = () => {
+  let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(),
   let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
   let liTag = "";
 
+  //for 문
   for (let i = 1; i <= lastDateofMonth; i++) {
     liTag += `<li>${i}</li>`;
   }
@@ -37,4 +39,11 @@ const renderCalendar = () => {
 
 renderCalendar();
 
-preNextIcon.forEach(icon = )
+prevNextIcon.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    // if 문
+    currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+    //달력 업데이트를 계속 해주는 것.
+    renderCalendar();
+  });
+});
