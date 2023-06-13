@@ -22,7 +22,7 @@ const months = [
 ];
 
 const renderCalendar = () => {
-  //getday는 요일을 가져옴, 0부터 일요일, 전 달의 1일의 요일을 가져옴
+  //getday는 요일을 가져옴, 0부터 일요일, 이번 달의 1일의 요일을 가져옴
   let firstDayofMonth = new Date(currYear, currMonth, 1).getDay();
   let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate();
   let lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay();
